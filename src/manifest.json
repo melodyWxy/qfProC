@@ -1,0 +1,22 @@
+{
+  "name": "千锋教育",
+  "short_name": "千锋教育",
+  "display": "standalone",
+  "start_url": "./?utm_source=homescreen",
+  "theme_color": "#002140",
+  "background_color": "#001529",
+  "icons": [
+    {
+      "src": "icons/home_logo.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/home_logo.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icons/home_logo.png",
+      "sizes": "512x512"
+    }
+  ]
+}
