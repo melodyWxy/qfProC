@@ -25,21 +25,10 @@ class CardList extends Component {
     const content = (
       <div className={styles.pageHeaderContent}>
         <p>
-          前端项目集锦。<Link to="/table-list">切换表格列表模式</Link>
+          前端项目集锦。
         </p>
         <div className={styles.contentLink}>
-          <a>
-            <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" />{' '}
-            快速开始
-          </a>
-          <a>
-            <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" />{' '}
-            产品简介
-          </a>
-          <a>
-            <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" />{' '}
-            产品文档
-          </a>
+          <Link to="/table-list">切换表格列表模式</Link>
         </div>
       </div>
     );

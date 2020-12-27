@@ -28,9 +28,7 @@ const { Step } = Steps;
 const ButtonGroup = Button.Group;
 const menu = (
   <Menu>
-    <Menu.Item key="1">选项一</Menu.Item>
-    <Menu.Item key="2">选项二</Menu.Item>
-    <Menu.Item key="3">选项三</Menu.Item>
+    <Menu.Item key="1">收藏</Menu.Item>
   </Menu>
 );
 const mobileMenu = (
@@ -61,15 +59,15 @@ const action = (
       return (
         <Fragment>
           <ButtonGroup>
-            <Button>操作一</Button>
-            <Button>操作二</Button>
+            <Button>关注</Button>
+            <Button>下载</Button>
             <Dropdown overlay={menu} placement="bottomRight">
               <Button>
                 <EllipsisOutlined />
               </Button>
             </Dropdown>
           </ButtonGroup>
-          <Button type="primary">主操作</Button>
+          <Button type="primary">预览</Button>
         </Fragment>
       );
     }}
@@ -77,22 +75,14 @@ const action = (
 );
 const extra = (
   <div className={styles.moreInfo}>
-    <Statistic title="状态" value="待审批" />
-    <Statistic title="订单金额" value={568.08} prefix="¥" />
+    <Statistic title="STAR" value={40} />
   </div>
 );
 const description = (
   <RouteContext.Consumer>
     {({ isMobile }) => (
       <Descriptions className={styles.headerList} size="small" column={isMobile ? 1 : 2}>
-        <Descriptions.Item label="创建人">曲丽丽</Descriptions.Item>
-        <Descriptions.Item label="订购产品">XX 服务</Descriptions.Item>
-        <Descriptions.Item label="创建时间">2017-07-07</Descriptions.Item>
-        <Descriptions.Item label="关联单据">
-          <a href="">12421</a>
-        </Descriptions.Item>
-        <Descriptions.Item label="生效日期">2017-07-07 ~ 2017-08-08</Descriptions.Item>
-        <Descriptions.Item label="备注">请于两个工作日内确认</Descriptions.Item>
+        <Descriptions.Item label="项目简介">这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</Descriptions.Item>
       </Descriptions>
     )}
   </RouteContext.Consumer>
@@ -175,20 +165,6 @@ const customDot = (dot, { status }) => {
   return dot;
 };
 
-const operationTabList = [
-  {
-    key: 'tab1',
-    tab: '操作日志一',
-  },
-  {
-    key: 'tab2',
-    tab: '操作日志二',
-  },
-  {
-    key: 'tab3',
-    tab: '操作日志三',
-  },
-];
 const columns = [
   {
     title: '操作类型',
@@ -320,120 +296,6 @@ class Advanced extends Component {
                   </Steps>
                 )}
               </RouteContext.Consumer>
-            </Card>
-            <Card
-              title="用户信息"
-              style={{
-                marginBottom: 24,
-              }}
-              bordered={false}
-            >
-              <Descriptions
-                style={{
-                  marginBottom: 24,
-                }}
-              >
-                <Descriptions.Item label="用户姓名">付小小</Descriptions.Item>
-                <Descriptions.Item label="会员卡号">32943898021309809423</Descriptions.Item>
-                <Descriptions.Item label="身份证">3321944288191034921</Descriptions.Item>
-                <Descriptions.Item label="联系方式">18112345678</Descriptions.Item>
-                <Descriptions.Item label="联系地址">
-                  曲丽丽 18100000000 浙江省杭州市西湖区黄姑山路工专路交叉路口
-                </Descriptions.Item>
-              </Descriptions>
-              <Descriptions
-                style={{
-                  marginBottom: 24,
-                }}
-                title="信息组"
-              >
-                <Descriptions.Item label="某某数据">725</Descriptions.Item>
-                <Descriptions.Item label="该数据更新时间">2017-08-08</Descriptions.Item>
-                <Descriptions.Item
-                  label={
-                    <span>
-                      某某数据
-                      <Tooltip title="数据说明">
-                        <InfoCircleOutlined
-                          style={{
-                            color: 'rgba(0, 0, 0, 0.43)',
-                            marginLeft: 4,
-                          }}
-                        />
-                      </Tooltip>
-                    </span>
-                  }
-                >
-                  725
-                </Descriptions.Item>
-                <Descriptions.Item label="该数据更新时间">2017-08-08</Descriptions.Item>
-              </Descriptions>
-              <h4
-                style={{
-                  marginBottom: 16,
-                }}
-              >
-                信息组
-              </h4>
-              <Card type="inner" title="多层级信息组">
-                <Descriptions
-                  style={{
-                    marginBottom: 16,
-                  }}
-                  title="组名称"
-                >
-                  <Descriptions.Item label="负责人">林东东</Descriptions.Item>
-                  <Descriptions.Item label="角色码">1234567</Descriptions.Item>
-                  <Descriptions.Item label="所属部门">XX公司 - YY部</Descriptions.Item>
-                  <Descriptions.Item label="过期时间">2017-08-08</Descriptions.Item>
-                  <Descriptions.Item label="描述">
-                    这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...
-                  </Descriptions.Item>
-                </Descriptions>
-                <Divider
-                  style={{
-                    margin: '16px 0',
-                  }}
-                />
-                <Descriptions
-                  style={{
-                    marginBottom: 16,
-                  }}
-                  title="组名称"
-                  column={1}
-                >
-                  <Descriptions.Item label="学名">
-                    Citrullus lanatus (Thunb.) Matsum. et
-                    Nakai一年生蔓生藤本；茎、枝粗壮，具明显的棱。卷须较粗..
-                  </Descriptions.Item>
-                </Descriptions>
-                <Divider
-                  style={{
-                    margin: '16px 0',
-                  }}
-                />
-                <Descriptions title="组名称">
-                  <Descriptions.Item label="负责人">付小小</Descriptions.Item>
-                  <Descriptions.Item label="角色码">1234568</Descriptions.Item>
-                </Descriptions>
-              </Card>
-            </Card>
-            <Card
-              title="用户近半年来电记录"
-              style={{
-                marginBottom: 24,
-              }}
-              bordered={false}
-            >
-              <Empty />
-            </Card>
-            <Card
-              className={styles.tabsCard}
-              bordered={false}
-              tabList={operationTabList}
-              onTabChange={this.onOperationTabChange}
-            >
-              {contentList[operationKey]}
             </Card>
           </GridContent>
         </div>

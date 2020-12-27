@@ -82,9 +82,9 @@ const TableList = () => {
   const [selectedRowsState, setSelectedRows] = useState([]);
   const columns = [
     {
-      title: '规则名称',
-      dataIndex: 'name',
-      tip: '规则名称是唯一的 key',
+      title: '项目名称',
+      dataIndex: 'title',
+      tip: '项目名称',
       formItemProps: {
         rules: [
           {
@@ -99,58 +99,43 @@ const TableList = () => {
     },
     {
       title: '描述',
-      dataIndex: 'desc',
+      dataIndex: 'description',
       valueType: 'textarea',
     },
     {
-      title: '服务调用次数',
-      dataIndex: 'callNo',
+      title: '关注数量',
+      dataIndex: 'stars',
       sorter: true,
       hideInForm: true,
-      renderText: (val) => `${val} 万`,
+      renderText: (val) => `${val} `,
     },
+    // {
+    //   title: '状态',
+    //   dataIndex: 'status',
+    //   hideInForm: true,
+    //   valueEnum: {
+    //     0: {
+    //       text: '关闭',
+    //       status: 'Default',
+    //     },
+    //     1: {
+    //       text: '运行中',
+    //       status: 'Processing',
+    //     },
+    //     2: {
+    //       text: '已上线',
+    //       status: 'Success',
+    //     },
+    //     3: {
+    //       text: '异常',
+    //       status: 'Error',
+    //     },
+    //   },
+    // },
     {
-      title: '状态',
-      dataIndex: 'status',
+      title: '应用技术备注',
+      dataIndex: 'remarks',
       hideInForm: true,
-      valueEnum: {
-        0: {
-          text: '关闭',
-          status: 'Default',
-        },
-        1: {
-          text: '运行中',
-          status: 'Processing',
-        },
-        2: {
-          text: '已上线',
-          status: 'Success',
-        },
-        3: {
-          text: '异常',
-          status: 'Error',
-        },
-      },
-    },
-    {
-      title: '上次调度时间',
-      dataIndex: 'updatedAt',
-      sorter: true,
-      valueType: 'dateTime',
-      hideInForm: true,
-      renderFormItem: (item, { defaultRender, ...rest }, form) => {
-        const status = form.getFieldValue('status');
-
-        if (`${status}` === '0') {
-          return false;
-        }
-
-        if (`${status}` === '3') {
-          return <Input {...rest} placeholder="请输入异常原因！" />;
-        }
-
-        return defaultRender(item);
-      },
     },
     {
       title: '操作',
@@ -158,16 +143,13 @@ const TableList = () => {
       valueType: 'option',
       render: (_, record) => (
         <>
-          <a
-            onClick={() => {
-              handleUpdateModalVisible(true);
-              setStepFormValues(record);
-            }}
+          <Link
+            to={`/profile/advanced?typeId=${record.typeId}&proId=${record.proId}`}
           >
-            配置
-          </a>
+            详情
+          </Link>
           <Divider type="vertical" />
-          <a href="">订阅警报</a>
+          <a href="">预览</a>
         </>
       ),
     },
@@ -182,7 +164,7 @@ const TableList = () => {
           labelWidth: 120,
         }}
         toolBarRender={() => [
-          <Link to=''>卡片模式</Link>
+          <Link to='/list'>卡片模式</Link>
         ]}
         request={(params, sorter, filter) => queryRule({ ...params, sorter, filter })}
         columns={columns}
