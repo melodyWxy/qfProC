@@ -64,7 +64,7 @@ class CardList extends Component {
                     <Card
                       hoverable
                       className={styles.card}
-                      actions={[<Link to={`/profile/advanced?typeId=${item.typeId}&proId=${item.proId}`} key="option1">项目详情</Link>, <a key="option2">项目预览</a>]}
+                      actions={[<Link to={`/profile/advanced?typeId=${item.typeId}&proId=${item.proId}`} key="option1">项目详情</Link>, <a key="option2" target="_blank" href={item.preview}>项目预览</a>]}
                     >
                       <Card.Meta
                         avatar={<img alt="" className={styles.cardAvatar} src={item.avatar} />}

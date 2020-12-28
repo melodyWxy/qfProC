@@ -150,7 +150,7 @@ const TableList = () => {
             详情
           </Link>
           <Divider type="vertical" />
-          <a href="">预览</a>
+          <a target='_blank' href={record.preview}>预览</a>
         </>
       ),
     },
