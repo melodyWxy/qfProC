@@ -10,14 +10,10 @@ import {
   Card,
   Statistic,
   Descriptions,
-  Divider,
   Dropdown,
   Menu,
   Popover,
   Steps,
-  Table,
-  Tooltip,
-  Empty,
 } from 'antd';
 import { GridContent, PageContainer, RouteContext } from '@ant-design/pro-layout';
 import React, { Component, Fragment } from 'react';
@@ -40,6 +36,24 @@ const mobileMenu = (
     <Menu.Item key="">选项三</Menu.Item>
   </Menu>
 );
+const imgSrcMapList =[
+  {
+    key: 'preViewSrc',
+    tab: '首页预览',
+  },
+  {
+    key: 'steps',
+    tab: '业务流程',
+  },
+  {
+    key: 'functionFramework',
+    tab: '功能架构',
+  },
+  {
+    key: 'tecFramework',
+    tab: '技术架构',
+  },
+]
 const action = (
   <RouteContext.Consumer>
     {({ isMobile }) => {
@@ -78,132 +92,21 @@ const extra = (
     <Statistic title="STAR" value={40} />
   </div>
 );
-const description = (
+const getDescription = (des, remarks) => (
   <RouteContext.Consumer>
     {({ isMobile }) => (
       <Descriptions className={styles.headerList} size="small" column={isMobile ? 1 : 2}>
-        <Descriptions.Item label="项目简介">这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述这是一段描述</Descriptions.Item>
+        <Descriptions.Item label="应用技术">{remarks}</Descriptions.Item>
+        <Descriptions.Item label="项目简介">{des}</Descriptions.Item>
       </Descriptions>
     )}
   </RouteContext.Consumer>
 );
-const desc1 = (
-  <div className={classNames(styles.textSecondary, styles.stepDescription)}>
-    <Fragment>
-      曲丽丽
-      <DingdingOutlined
-        style={{
-          marginLeft: 8,
-        }}
-      />
-    </Fragment>
-    <div>2016-12-12 12:32</div>
-  </div>
-);
-const desc2 = (
-  <div className={styles.stepDescription}>
-    <Fragment>
-      周毛毛
-      <DingdingOutlined
-        style={{
-          color: '#00A0E9',
-          marginLeft: 8,
-        }}
-      />
-    </Fragment>
-    <div>
-      <a href="">催一下</a>
-    </div>
-  </div>
-);
-const popoverContent = (
-  <div
-    style={{
-      width: 160,
-    }}
-  >
-    吴加号
-    <span
-      className={styles.textSecondary}
-      style={{
-        float: 'right',
-      }}
-    >
-      <Badge
-        status="default"
-        text={
-          <span
-            style={{
-              color: 'rgba(0, 0, 0, 0.45)',
-            }}
-          >
-            未响应
-          </span>
-        }
-      />
-    </span>
-    <div
-      className={styles.textSecondary}
-      style={{
-        marginTop: 4,
-      }}
-    >
-      耗时：2小时25分钟
-    </div>
-  </div>
-);
-
-const customDot = (dot, { status }) => {
-  if (status === 'process') {
-    return (
-      <Popover placement="topLeft" arrowPointAtCenter content={popoverContent}>
-        {dot}
-      </Popover>
-    );
-  }
-
-  return dot;
-};
-
-const columns = [
-  {
-    title: '操作类型',
-    dataIndex: 'type',
-    key: 'type',
-  },
-  {
-    title: '操作人',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: '执行结果',
-    dataIndex: 'status',
-    key: 'status',
-    render: (text) => {
-      if (text === 'agree') {
-        return <Badge status="success" text="成功" />;
-      }
-
-      return <Badge status="error" text="驳回" />;
-    },
-  },
-  {
-    title: '操作时间',
-    dataIndex: 'updatedAt',
-    key: 'updatedAt',
-  },
-  {
-    title: '备注',
-    dataIndex: 'memo',
-    key: 'memo',
-  },
-];
 
 class Advanced extends Component {
   state = {
     operationKey: 'tab1',
-    tabActiveKey: 'detail',
+    tabActiveKey: 'preViewSrc',
   };
 
   componentDidMount() {
@@ -225,77 +128,30 @@ class Advanced extends Component {
   };
 
   render() {
-    const { operationKey, tabActiveKey } = this.state;
-    const { profileAndadvanced, loading } = this.props;
-    const { advancedOperation1, advancedOperation2, advancedOperation3 } = profileAndadvanced;
-    const contentList = {
-      tab1: (
-        <Table
-          pagination={false}
-          loading={loading}
-          dataSource={advancedOperation1}
-          columns={columns}
-        />
-      ),
-      tab2: (
-        <Table
-          pagination={false}
-          loading={loading}
-          dataSource={advancedOperation2}
-          columns={columns}
-        />
-      ),
-      tab3: (
-        <Table
-          pagination={false}
-          loading={loading}
-          dataSource={advancedOperation3}
-          columns={columns}
-        />
-      ),
-    };
+    const { tabActiveKey } = this.state;
+    const { profileAndadvanced = {} } = this.props;
+    const { data = {} } = profileAndadvanced;
     return (
       <PageContainer
-        title="单号：234231029431"
+        title={data['title']}
         extra={action}
         className={styles.pageHeader}
-        content={description}
+        content={getDescription(data['description'], data['remarks'])}
         extraContent={extra}
         tabActiveKey={tabActiveKey}
         onTabChange={this.onTabChange}
-        tabList={[
-          {
-            key: 'detail',
-            tab: '详情',
-          },
-          {
-            key: 'rule',
-            tab: '规则',
-          },
-        ]}
+        tabList={imgSrcMapList}
       >
         <div className={styles.main}>
           <GridContent>
             <Card
-              title="流程进度"
+              title={imgSrcMapList.find(item=>item.key===tabActiveKey)?.tab || ''}
               style={{
                 marginBottom: 24,
               }}
             >
-              <RouteContext.Consumer>
-                {({ isMobile }) => (
-                  <Steps
-                    direction={isMobile ? 'vertical' : 'horizontal'}
-                    progressDot={customDot}
-                    current={1}
-                  >
-                    <Step title="创建项目" description={desc1} />
-                    <Step title="部门初审" description={desc2} />
-                    <Step title="财务复核" />
-                    <Step title="完成" />
-                  </Steps>
-                )}
-              </RouteContext.Consumer>
+              <img className={styles.imgX} src={data[tabActiveKey]}>
+              </img>
             </Card>
           </GridContent>
         </div>

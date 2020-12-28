@@ -28,7 +28,7 @@ class CardList extends Component {
           前端项目集锦。
         </p>
         <div className={styles.contentLink}>
-          <Link to="/table-list">切换表格列表模式</Link>
+          <Link to={`/table-list${location.search}`}>切换表格列表模式</Link>
         </div>
       </div>
     );

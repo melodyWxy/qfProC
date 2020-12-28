@@ -101,6 +101,7 @@ const TableList = () => {
       title: '描述',
       dataIndex: 'description',
       valueType: 'textarea',
+      width: "40%"
     },
     {
       title: '关注数量',
@@ -164,7 +165,7 @@ const TableList = () => {
           labelWidth: 120,
         }}
         toolBarRender={() => [
-          <Link to='/list'>卡片模式</Link>
+          <Link to={`/list${location.search}`}>卡片模式</Link>
         ]}
         request={(params, sorter, filter) => queryRule({ ...params, sorter, filter })}
         columns={columns}

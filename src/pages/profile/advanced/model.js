@@ -9,7 +9,17 @@ const Model = {
   },
   effects: {
     *fetchAdvanced(_, { call, put }) {
-      const response = yield call(queryAdvancedProfile);
+      const searchParams = new URLSearchParams(location.search);
+      const params = {};
+      searchParams.forEach((v, key)=>{
+        if(key === 'typeId'){
+          params['typeId'] = v;
+        }
+        if(key === 'proId'){
+          params['proId'] = v;
+        }
+      })
+      const response = yield call(queryAdvancedProfile, params);
       yield put({
         type: 'show',
         payload: response,
