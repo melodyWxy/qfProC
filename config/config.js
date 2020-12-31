@@ -136,74 +136,103 @@ export default defineConfig({
               icon: 'smile',
               path: '/table-list',
               component: './list/table-list',
-              hideInMenu : true,
-            },
-            {
-              name: 'list',
-              icon: 'smile',
-              path: '/list',
-              component: './list/card-list',
+              hideInMenu: true,
             },
             {
               path: '/list/search',
               redirect: '/list/search/articles',
-              hideInMenu : true,
+              hideInMenu: true,
             },
             {
               name: 'articles',
               icon: 'smile',
               path: '/list/search/articles',
               component: './list/search/articles',
-              hideInMenu : true,
+              hideInMenu: true,
             },
             {
               name: 'projects',
               icon: 'smile',
               path: '/list/search/projects',
               component: './list/search/projects',
-              hideInMenu : true,
+              hideInMenu: true,
             },
             {
               name: 'applications',
               icon: 'smile',
               path: '/list/search/applications',
               component: './list/search/applications',
-              hideInMenu : true,
+              hideInMenu: true,
             },
             {
               name: 'basic-list',
               icon: 'smile',
               path: '/list/basic-list',
               component: './list/basic-list',
-              hideInMenu : true,
+              hideInMenu: true,
             },
+            {
+              name: 'offer',
+              path: '/offer',
+              component: './offer',
+            },
+            {
+              name: 'BBS',
+              path: '/bbs',
+              component: './bbs',
+            },
+            {
+              name: 'graduate',
+              path: '/graduate',
+              component: './graduate',
+            },
+            {
+              name: 'teach',
+              path: '/teach',
+              component: './teach',
+            },
+            {
+              name: 'student',
+              path: '/student',
+              component: './student',
+            },
+            {
+              name: 'united',
+              path: '/united',
+              component: './united',
+            },
+            {
+              name: 'aboutUs',
+              path: '/aboutUs',
+              component: './aboutUs',
+            },
+
             // {
             //   path: '/list',
             //   icon: 'table',
             //   name: 'list',
-            //   hideChildrenInMenu : true,                                                                                                                                                                               
+            //   hideChildrenInMenu : true,
             //   routes: [
             //     {
             //       path: '/list/search',
             //       name: 'search-list',
             //       component: './list/search',
             //       routes: [
-                   
+
             //       ],
             //     },
             //     {
             //       path: '/',
-            //       component: './list/card-list',  
+            //       component: './list/card-list',
             //     },
 
-                
             //   ],
             // },
             {
               path: '/profile',
               name: 'profile',
               icon: 'profile',
-              hideInMenu : true,
+              hideInMenu: true,
               routes: [
                 {
                   path: '/',

@@ -1,8 +1,10 @@
 /lambda/
 /scripts
-/config
+# /config
 .history
 public
 dist
-.umi
+# .umi
 mock
+src/pages/
+src/pages/aboutUs/style.less

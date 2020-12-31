@@ -24,6 +24,7 @@ class CardList extends Component {
     } = this.props;
     const content = (
       <div className={styles.pageHeaderContent}>
+        <button className='styleButton'>JOIN NOW</button>
         <p>
           前端项目集锦。
         </p>

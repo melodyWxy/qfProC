@@ -21,3 +21,5 @@ yarn-error.log
 CNAME
 /build
 /public
+src/pages/
+src/pages/aboutUs/style.less
