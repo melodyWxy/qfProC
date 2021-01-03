@@ -1,18 +1,21 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Card, List, Typography } from 'antd';
+import { Button, Card, List, Table, Typography } from 'antd';
 import React, { Component } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import { connect, Link } from 'umi';
+import getLocationSearch from './../lib/getLocationSearch';
+import getTypeId from './../lib/getTypeIdBySeach';
 import styles from './style.less';
 const { Paragraph } = Typography;
 
 class CardList extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
+    const typeId = getTypeId();
     dispatch({
       type: 'listAndcardList/fetch',
       payload: {
-        count: 8,
+        typeId,
       },
     });
   }
@@ -22,13 +25,14 @@ class CardList extends Component {
       listAndcardList: { list },
       loading,
     } = this.props;
+
     const content = (
       <div className={styles.pageHeaderContent}>
         <p>
           前端项目集锦。
         </p>
         <div className={styles.contentLink}>
-          <Link to={`/table-list${location.search}`}>切换表格列表模式</Link>
+          <Link to={`/table-list${getLocationSearch()}`}>切换表格列表模式</Link>
         </div>
       </div>
     );
