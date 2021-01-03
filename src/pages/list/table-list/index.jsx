@@ -8,6 +8,10 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 import { queryRule, updateRule, addRule, removeRule } from './service';
+import getCardListPath from './../lib/getCardListPath';
+import getTypeId from './../lib/getTypeIdBySeach';
+import getTableTitleBySeach from './../lib/getTableTitleBySeach';
+
 /**
  * 添加节点
  * @param fields
@@ -158,16 +162,16 @@ const TableList = () => {
   return (
     <PageContainer>
       <ProTable
-        headerTitle="查询表格"
+        headerTitle={getTableTitleBySeach()}
         actionRef={actionRef}
         rowKey="key"
         search={{
           labelWidth: 120,
         }}
         toolBarRender={() => [
-          <Link to={`/list${location.search}`}>卡片模式</Link>
+          <Link to={getCardListPath()}>卡片模式</Link>
         ]}
-        request={(params, sorter, filter) => queryRule({ ...params, sorter, filter })}
+        request={(params, sorter, filter) => queryRule({ ...params, typeId: getTypeId(), sorter, filter })}
         columns={columns}
         rowSelection={{
           onChange: (_, selectedRows) => setSelectedRows(selectedRows),

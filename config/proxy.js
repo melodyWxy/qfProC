@@ -7,17 +7,17 @@
  */
 export default {
   dev: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
+    '/api': {
+      target: 'http://localhost:7001/',
       changeOrigin: true,
       pathRewrite: {
-        '^': '',
+        '/api': '',
       },
     },
   },
   test: {
     '/api/': {
-      target: 'https://preview.pro.ant.design',
+      target: 'http://localhost:7001/',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
@@ -26,7 +26,7 @@ export default {
   },
   pre: {
     '/api/': {
-      target: 'your pre url',
+      target: 'http://121.196.150.29:7002',
       changeOrigin: true,
       pathRewrite: {
         '^': '',

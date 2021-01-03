@@ -5,7 +5,7 @@ const proSettings = {
   "contentWidth": "Fixed",
   "fixedHeader": true,
   "fixSiderbar": true,
-  "title": "千锋",
+  "title": "HTML大前端",
   "pwa": false,
   "iconfontUrl": "",
   "splitMenus": false

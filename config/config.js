@@ -145,6 +145,24 @@ export default defineConfig({
               component: './list/card-list',
             },
             {
+              name: 'stu-list',
+              icon: 'smile',
+              path: '/stu-list',
+              component: './list/card-list',
+            },
+            {
+              name: 'completion-list',
+              icon: 'smile',
+              path: '/completion-list',
+              component: './list/card-list',
+            },
+            {
+              name: 'joint-list',
+              icon: 'smile',
+              path: '/joint-list',
+              component: './list/card-list',
+            },
+            {
               path: '/list/search',
               redirect: '/list/search/articles',
               hideInMenu : true,
