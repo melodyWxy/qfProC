@@ -97,9 +97,13 @@ const TableList = () => {
           },
         ],
       },
-      render: (dom, entity) => {
-        return <a onClick={() => setRow(entity)}>{dom}</a>;
-      },
+      render: (title, record) =>(
+        <Link
+          to={`/profile/advanced?typeId=${record.typeId}&proId=${record.proId}`}
+        >
+          {title}
+        </Link>
+      )
     },
     {
       title: '描述',
