@@ -26,6 +26,7 @@ export default {
   'menu.basic-list': 'Basic List',
   // 'menu.front-end-card-list': '卡片列表',
   'menu.stu-list': 'Student self project',
+  'menu.offer-wall': 'Offer wall',
   'menu.joint-list': 'Joint project',
   'menu.list': 'Teaching project',
   'menu.search-list': 'Search List',

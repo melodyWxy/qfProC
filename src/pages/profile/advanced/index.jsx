@@ -17,10 +17,8 @@ import {
 } from 'antd';
 import { GridContent, PageContainer, RouteContext } from '@ant-design/pro-layout';
 import React, { Component, Fragment } from 'react';
-import classNames from 'classnames';
 import { connect } from 'umi';
 import styles from './style.less';
-const { Step } = Steps;
 const ButtonGroup = Button.Group;
 const menu = (
   <Menu>
@@ -29,11 +27,8 @@ const menu = (
 );
 const mobileMenu = (
   <Menu>
-    <Menu.Item key="1">操作一</Menu.Item>
-    <Menu.Item key="2">操作二</Menu.Item>
-    <Menu.Item key="3">选项一</Menu.Item>
-    <Menu.Item key="4">选项二</Menu.Item>
-    <Menu.Item key="">选项三</Menu.Item>
+    <Menu.Item key="3">关注</Menu.Item>
+    <Menu.Item key="2">下载</Menu.Item>
   </Menu>
 );
 const imgSrcMapList =[
@@ -54,7 +49,7 @@ const imgSrcMapList =[
     tab: '技术架构',
   },
 ]
-const action = (
+const getAction = (lxh) => (
   <RouteContext.Consumer>
     {({ isMobile }) => {
       if (isMobile) {
@@ -64,8 +59,9 @@ const action = (
             icon={<DownOutlined />}
             overlay={mobileMenu}
             placement="bottomRight"
+            onClick={() => window.open(lxh.preview)}
           >
-            主操作
+            预览
           </Dropdown.Button>
         );
       }
@@ -81,7 +77,7 @@ const action = (
               </Button>
             </Dropdown>
           </ButtonGroup>
-          <Button type="primary">预览</Button>
+          <Button type="primary"  onClick={() => window.open(lxh.preview)}>预览</Button>
         </Fragment>
       );
     }}
@@ -131,6 +127,7 @@ class Advanced extends Component {
     const { tabActiveKey } = this.state;
     const { profileAndadvanced = {} } = this.props;
     const { data = {} } = profileAndadvanced;
+    const action = getAction(data);
     return (
       <PageContainer
         title={data['title']}
@@ -150,8 +147,11 @@ class Advanced extends Component {
                 marginBottom: 24,
               }}
             >
-              <img className={styles.imgX} src={data[tabActiveKey]}>
-              </img>
+              {tabActiveKey=== 'preViewSrc'? (
+                <iframe  className={styles.iframeX}  src={data['preview']}/>
+              ) : (
+                <img className={styles.imgX} src={data[tabActiveKey]} />
+              )}
             </Card>
           </GridContent>
         </div>

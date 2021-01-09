@@ -4,7 +4,7 @@ export async function queryCurrent() {
   return request('/api/currentUser');
 }
 export async function queryFakeList(params) {
-  return request('/api/wall/getList', {
+  return request('http://121.196.150.29:7002/offer/getList', {
     params,
   });
 }

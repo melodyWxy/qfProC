@@ -1,7 +1,7 @@
 export default {
   'menu.welcome': '欢迎',
   'menu.more-blocks': '更多区块',
-  'menu.home': '首页',
+  'menu.home': 'HTML5大前端',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',
   'menu.login': '登录',
@@ -30,6 +30,7 @@ export default {
   'menu.search-list': '搜索列表',
   'menu.completion-list': '毕设项目',
   'menu.search-list.articles': '搜索列表（文章）',
+  'menu.offer-wall': 'Offer墙',
   'menu.search-list.projects': '搜索列表（项目）',
   'menu.search-list.applications': '搜索列表（应用）',
   'menu.profile': '项目详情',
