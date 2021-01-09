@@ -31,17 +31,12 @@ class CardList extends Component {
         <p>
           前端项目集锦。
         </p>
-        <div className={styles.contentLink}>
-          <Link to={`/table-list${getLocationSearch()}`}>切换表格列表模式</Link>
-        </div>
+
       </div>
     );
     const extraContent = (
-      <div className={styles.extraImg}>
-        <img
-          alt="这是一个标题"
-          src="https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png"
-        />
+      <div className={styles.contentLink}>
+        <Link to={`/table-list${getLocationSearch()}`}>切换表格列表模式</Link>
       </div>
     );
     // const nullData = {};

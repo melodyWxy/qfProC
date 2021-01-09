@@ -163,6 +163,12 @@ export default defineConfig({
               component: './list/card-list',
             },
             {
+              name: 'offer-wall',
+              icon: 'smile',
+              path: '/offer-wall',
+              component: './offerWall',
+            },
+            {
               path: '/list/search',
               redirect: '/list/search/articles',
               hideInMenu : true,

@@ -1,7 +1,7 @@
 export default {
   'menu.welcome': '歡迎',
   'menu.more-blocks': '更多區塊',
-  'menu.home': '首頁',
+  'menu.home': 'HTML5大前端',
   'menu.login': '登錄',
   'menu.admin': '权限',
   'menu.admin.sub-page': '二级管理页',
@@ -25,6 +25,7 @@ export default {
   'menu.table-list': '查詢表格',
   'menu.list.basic-list': '標淮列表',
   'menu.joint-list': '联合项目',
+  'menu.offer-wall': 'Offer墙',
   'menu.completion-list': '毕设项目',
   'menu.list.card-list': '教学项目',
   'menu.list.search-list': '搜索列表',

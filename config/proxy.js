@@ -20,7 +20,7 @@ export default {
       target: 'http://localhost:7001/',
       changeOrigin: true,
       pathRewrite: {
-        '^': '',
+        '/api': '',
       },
     },
   },
@@ -29,7 +29,7 @@ export default {
       target: 'http://121.196.150.29:7002',
       changeOrigin: true,
       pathRewrite: {
-        '^': '',
+        '/api': '',
       },
     },
   },
