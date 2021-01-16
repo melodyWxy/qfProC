@@ -148,7 +148,7 @@ class Advanced extends Component {
               }}
             >
               {tabActiveKey=== 'preViewSrc'? (
-                <iframe  className={styles.iframeX}  src={data['preview']}/>
+                <iframe  className={data['proType'] === 'h5'? styles.iframeX : styles.iframeY}   src={data['preview']}/>
               ) : (
                 <img className={styles.imgX} src={data[tabActiveKey]} />
               )}
