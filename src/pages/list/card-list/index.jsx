@@ -66,6 +66,7 @@ class CardList extends Component {
                       actions={[<Link to={`/profile/advanced?typeId=${item.typeId}&proId=${item.proId}`} key="option1">项目详情</Link>, <a key="option2" target="_blank" href={item.preview}>项目预览</a>]}
                     >
                       <Card.Meta
+                        onClick={()=>this.props.history.push(`/profile/advanced?typeId=${item.typeId}&proId=${item.proId}`)}
                         avatar={<img alt="" className={styles.cardAvatar} src={item.avatar} />}
                         title={<a>{item.title}</a>}
                         description={
