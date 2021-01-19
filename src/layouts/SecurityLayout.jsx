@@ -32,7 +32,7 @@ class SecurityLayout extends React.Component {
     });
 
     if ((!isLogin && loading) || !isReady) {
-      return  1;
+      return <PageLoading />;
     }
 
     if (!isLogin && window.location.pathname !== '/user/login') {
