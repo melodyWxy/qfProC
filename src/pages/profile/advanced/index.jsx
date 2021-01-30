@@ -122,6 +122,19 @@ class Advanced extends Component {
       tabActiveKey,
     });
   };
+  renderDetailPre = (tabActiveKey, data) => {
+    if(tabActiveKey=== 'preViewSrc'){
+      if(data['proType'] === 'vedio'){
+        return (
+          <video  width="100%" height="100%"  controls> 
+            <source src={data['preview']}  type="video/mp4" />
+          </video>
+        )
+      }
+      return <iframe  className={data['proType'] === 'h5'? styles.iframeX : styles.iframeY}   src={data['preview']}/>
+    }
+    return <img className={styles.imgX} src={data[tabActiveKey]} />
+  }
 
   render() {
     const { tabActiveKey } = this.state;
@@ -147,11 +160,7 @@ class Advanced extends Component {
                 marginBottom: 24,
               }}
             >
-              {tabActiveKey=== 'preViewSrc'? (
-                <iframe  className={data['proType'] === 'h5'? styles.iframeX : styles.iframeY}   src={data['preview']}/>
-              ) : (
-                <img className={styles.imgX} src={data[tabActiveKey]} />
-              )}
+              {this.renderDetailPre(tabActiveKey, data)}
             </Card>
           </GridContent>
         </div>
