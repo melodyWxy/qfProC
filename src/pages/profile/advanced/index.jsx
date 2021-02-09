@@ -124,6 +124,15 @@ class Advanced extends Component {
   };
   renderDetailPre = (tabActiveKey, data) => {
     if(tabActiveKey=== 'preViewSrc'){
+      if(data['proType'] === 'vedioH5'){
+        return (
+          <div className={styles.iframeX}>
+            <video  width="100%" height="100%"  controls> 
+              <source src={data['preview']}  type="video/mp4" />
+            </video>
+          </div>
+        )
+      }
       if(data['proType'] === 'vedio'){
         return (
           <video  width="100%" height="100%"  controls> 
