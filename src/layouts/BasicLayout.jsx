@@ -4,7 +4,7 @@
  * https://github.com/ant-design/ant-design-pro-layout
  */
 import ProLayout, { DefaultFooter, SettingDrawer } from '@ant-design/pro-layout';
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Link, useIntl, connect, history } from 'umi';
 import { GithubOutlined } from '@ant-design/icons';
 import { Result, Button } from 'antd';
@@ -12,6 +12,7 @@ import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { getMatchMenu } from '@umijs/route-utils';
 import logo from '../assets/home_logo.png';
+
 const noMatch = (
   <Result
     status={403}
@@ -28,7 +29,7 @@ const noMatch = (
 /**
  * use Authorized check all menu item
  */
-const menuDataRender = (menuList) =>{
+const menuDataRender = (menuList) => {
   return menuList.map((item) => {
     const localItem = {
       ...item,
@@ -36,15 +37,14 @@ const menuDataRender = (menuList) =>{
     };
     return Authorized.check(item.authority, localItem, null);
   });
-}
-
+};
 
 const defaultFooterDom = (
   <DefaultFooter
     copyright={`${new Date().getFullYear()} 千锋教育教学项目`}
     links={[
       {
-        key: 'Ant Design Pro',
+        key: 'qianfeng',
         title: '千锋教育',
         href: 'https://pro.ant.design',
         blankTarget: true,
@@ -131,7 +131,7 @@ const BasicLayout = (props) => {
         itemRender={(route, params, routes, paths) => {
           const first = routes.indexOf(route) === 0;
           return first ? (
-            <Link  to={paths.join('/')}>{route.breadcrumbName}</Link>
+            <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
           ) : (
             <span>{route.breadcrumbName}</span>
           );
